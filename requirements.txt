@@ -7,4 +7,6 @@ pandas
 scipy
 numpy
 qutip
+qiskit
+
 
