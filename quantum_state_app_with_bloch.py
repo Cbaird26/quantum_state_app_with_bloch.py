@@ -1,14 +1,8 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
-
-# Check and install Qiskit if not already installed
-try:
-    from qiskit.visualization import plot_bloch_multivector
-    from qiskit.quantum_info import Statevector
-except ImportError:
-    st.error("Qiskit is not installed. Please install Qiskit using `pip install qiskit`.")
-    st.stop()
+from qiskit.visualization import plot_bloch_multivector
+from qiskit.quantum_info import Statevector
 
 # Define the basis states
 basis_states = [np.array([1, 0]), np.array([0, 1])]
@@ -51,6 +45,5 @@ statevector = Statevector(Psi_perf)
 
 # Plot the quantum state on the Bloch Sphere using Qiskit's built-in function
 st.write("### Bloch Sphere Representation")
-fig2 = plt.figure()
-plot_bloch_multivector(statevector)
+fig2 = plot_bloch_multivector(statevector)
 st.pyplot(fig2)
