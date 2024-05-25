@@ -1,14 +1,14 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
-from qiskit.visualization import plot_bloch_multivector
-from qiskit.quantum_info import Statevector
 
-# Ensure the necessary libraries are installed
+# Check and install Qiskit if not already installed
 try:
-    import qiskit
+    from qiskit.visualization import plot_bloch_multivector
+    from qiskit.quantum_info import Statevector
 except ImportError:
     st.error("Qiskit is not installed. Please install Qiskit using `pip install qiskit`.")
+    st.stop()
 
 # Define the basis states
 basis_states = [np.array([1, 0]), np.array([0, 1])]
