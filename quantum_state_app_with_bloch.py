@@ -4,6 +4,12 @@ import matplotlib.pyplot as plt
 from qiskit.visualization import plot_bloch_multivector
 from qiskit.quantum_info import Statevector
 
+# Ensure the necessary libraries are installed
+try:
+    import qiskit
+except ImportError:
+    st.error("Qiskit is not installed. Please install Qiskit using `pip install qiskit`.")
+
 # Define the basis states
 basis_states = [np.array([1, 0]), np.array([0, 1])]
 
@@ -43,7 +49,8 @@ st.pyplot(fig)
 # Convert the state to a Qiskit Statevector
 statevector = Statevector(Psi_perf)
 
-# Create a figure for the Bloch Sphere visualization
-fig2, ax2 = plt.subplots(subplot_kw={'projection': '3d'})
-plot_bloch_multivector(statevector, title="Bloch Sphere Representation", ax=ax2)
+# Plot the quantum state on the Bloch Sphere using Qiskit's built-in function
+st.write("### Bloch Sphere Representation")
+fig2 = plt.figure()
+plot_bloch_multivector(statevector)
 st.pyplot(fig2)
